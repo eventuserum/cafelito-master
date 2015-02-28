@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="coffeeApp">
+<head>
+    <title>Alison's Awesome Coffee</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css" media="screen"/>
+</head>
+<body>
+
+    <div ng-controller="CoffeeShopController" class="container">
+        <div class="panel panel-default" ng-show="nearestCoffeeShop">
+            <!--@ is google maps parameter-->
+            <div class="panel-body">
+                Your coffee will be ready for pickup at: <strong>{{nearestCoffeeShop.name}}</strong>
+                <a ng-href="https://www.google.com/maps/place/{{nearestCoffeeShop.name}}/@{{nearestCoffeeShop.location.coordinates[1]}},{{nearestCoffeeShop.location.coordinates[0]}},16z">Map</a>
+            </div>
+        </div>
+    </div>
+
+    <div ng-controller="OrderController" class="container">
+        <alert ng-repeat="message in messages" type="message.type" close="closeAlert($index)">
+            {{message.msg}}
+        </alert>
+
+        <form ng-submit="sendMeCoffee()">
+            <div class="form-group">
+                <label for="drink">Drink</label>
+                <select  id="drink" ng-model="drink.type" ng-options="type.name for type in types | orderBy: 'name' " ng-required="true" class="form-control">
+                    <option></option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="size">Size</label>
+                <select id="size" ng-model="drink.size" ng-options="size for size in sizes" ng-required="true" class="form-control">
+                    <option></option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for='drinker'>Drinker</label>
+                <input type='text' id="drinker" ng-model="drink.drinker" ng-required="true" class='form-control'/>
+            </div>
+            <div class="form-group">
+                <input type="submit" ng-model="drink.drinker" ng-required="true" class="btn btn-default btn-lg" value="Give me coffee!!!"/>
+            </div>
+        </form>
+        <pre>{{drink | json }}</pre>
+    </div>
+
+    <script src="js/jquery-2.1.0.min.js"></script>
+    <script src="js/angular.min.js"></script>
+    <script src="js/angular-resource.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/coffee.js"></script>
+    <script src="js/ui-bootstrap-tpls-0.10.0.min.js"></script>
+</body>
+</html>
