@@ -10,7 +10,7 @@ import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
 
 /**
- * Created by Alison on 26/01/15
+ * Created by EV on 26/01/15
  */
 public class CoffeeShopApplication extends Application<Configuration> {
     public static void main(String[] args) throws Exception {

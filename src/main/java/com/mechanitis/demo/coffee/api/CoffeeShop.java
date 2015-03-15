@@ -1,3 +1,4 @@
+
 package com.mechanitis.demo.coffee.api;
 
 @SuppressWarnings("ALL")

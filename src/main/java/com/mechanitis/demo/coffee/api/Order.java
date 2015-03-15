@@ -3,7 +3,7 @@ package com.mechanitis.demo.coffee.api;
 import org.mongodb.morphia.annotations.Id;
 
 /**
- * Created by Alison on 28/01/15
+ * Created by EV on 28/01/15
  */
 public class Order {
     //    form = {
@@ -13,7 +13,7 @@ public class Order {
     //            "family": "Coffee"
     //        },
     //        "size": "Small",
-    //        "drinker": "Trisha"
+    //        "drinker": "Eve"
     //    }
     private String[] selectedOptions;
 
